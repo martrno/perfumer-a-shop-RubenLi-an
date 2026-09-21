@@ -1,0 +1,1938 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1a0b2e" />
+    <title>Esencia Dorada | Perfumería Online Perú</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <style>
+    </style>
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header class="glass">
+      <div class="logo-wrap" onclick="setCat('home')">
+        <img
+          id="logoImg"
+          src="IMAGEN/img.jpeg"
+          alt="Logo Esencia Dorada"
+        />
+        <b>ESENCIA DORADA</b>
+      </div>
+      <button class="btn hbtn" id="btnMenu" aria-label="Categorías">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menuDrop" class="glass"></nav>
+
+      <button class="btn hbtn" id="btnUbic" title="Ubicación">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"
+          />
+        </svg>
+        <span class="lbl" id="ubicLbl">UBICACIÓN</span>
+      </button>
+
+      <div class="searchbox">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke-width="2.4"
+          stroke-linecap="round"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+        <input id="searchInput" placeholder="¿Qué estás buscando hoy?" />
+      </div>
+
+      <button class="btn hbtn" id="btnLogin">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.4 0-8 2.2-8 5v3h16v-3c0-2.8-3.6-5-8-5z"
+          />
+        </svg>
+        <span class="lbl" id="loginLbl">Iniciar sesión</span>
+      </button>
+
+      <button class="btn hbtn" id="btnCart" title="Carrito">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM7.4 14h9.9a2 2 0 0 0 1.9-1.4l2.3-7A1 1 0 0 0 20.6 4H6.2l-.5-2H2v2h2.1l2.6 11.2A2 2 0 0 0 8.6 17H19v-2H8.6a.5.5 0 0 1-.5-.4L7.4 14z"
+          />
+        </svg>
+        <span class="lbl">Carrito</span><span id="cartCount">0</span>
+      </button>
+    </header>
+
+    <!-- ================= CARRUSEL ================= -->
+    <div id="carousel" class="glass">
+      <div class="slides" id="slides"></div>
+      <button class="btn cnav prev" onclick="moveSlide(-1)">‹</button>
+      <button class="btn cnav next" onclick="moveSlide(1)">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <!-- ================= NAV CATEGORÍAS ================= -->
+    <nav id="catNav" class="glass"></nav>
+
+    <!-- ================= PRODUCTOS ================= -->
+    <main>
+      <h2 id="catTitle">Todos nuestros productos</h2>
+      <div id="grid"></div>
+    </main>
+
+    <!-- ================= INFO / CONFIANZA ================= -->
+    <section id="info">
+      <div class="icard glass">
+        <span class="ic">💳</span>
+        <h4>Paga con Tienda online</h4>
+        <p>
+          Usa Mercado Pago, la solución de Tienda online para pagar de forma
+          segura y con el medio de pago que prefieras.
+        </p>
+        <a onclick="openInfo('mp')">Cómo pagar con Mercado Pago</a>
+      </div>
+      <div class="icard glass">
+        <span class="ic">🚚</span>
+        <h4>Envío gratis desde S/ 39</h4>
+        <p>
+          Compra con envíos de Tienda Online y disfruta de envíos gratis en
+          miles de productos.
+        </p>
+      </div>
+      <div class="icard glass">
+        <span class="ic">🛡️</span>
+        <h4>Seguridad, de principio a fin</h4>
+        <p>
+          ¿No te gusta? ¡Devuélvelo! En Tienda Online, no hay nada que no puedas
+          hacer, porque estás siempre protegido.
+        </p>
+        <a onclick="openInfo('prot')">Cómo te protegemos</a>
+      </div>
+      <div class="icard glass">
+        <span class="ic">🧾</span>
+        <h4>Paga con Tienda Online</h4>
+        <p>
+          Usa Tienda Online, la solución de Tienda Online para pagar de forma
+          segura y con el medio de pago que prefieras.
+        </p>
+        <a onclick="openInfo('mp')">Cómo pagar con Tienda Online</a>
+      </div>
+      <div class="icard glass">
+        <span class="ic">📦</span>
+        <h4>Envío gratis desde S/ 39</h4>
+        <p>
+          Compra con envíos de Tienda Online y disfruta de envíos gratis en
+          miles de productos.
+        </p>
+      </div>
+      <div class="icard glass">
+        <span class="ic">🔒</span>
+        <h4>Seguridad, de principio a fin</h4>
+        <p>
+          ¿No te gusta? ¡Devuélvelo! En Mercado Libre, no hay nada que no puedas
+          hacer, porque estás siempre protegido.
+        </p>
+        <a onclick="openInfo('prot')">Cómo te protegemos</a>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <div class="fgrid">
+        <div>
+          <h5>✨ Esencia Dorada</h5>
+          <p>
+            Perfumería online peruana. Fragancias originales, cremas, sprays y
+            más, con entrega a todo el Perú.
+          </p>
+          <p>📱 WhatsApp: +51 943 012 639</p>
+        </div>
+        <div>
+          <h5>Categorías</h5>
+          <a onclick="setCat('colonias')">Colonias Público general</a>
+          <a onclick="setCat('dama')">Perfumes para dama</a>
+          <a onclick="setCat('caballero')">Perfumes para caballero</a>
+          <a onclick="setCat('juveniles')">Perfumes juveniles</a>
+          <a onclick="setCat('spray')">Spray corporal</a>
+          <a onclick="setCat('cremas')">Cremas corporales</a>
+          <a onclick="setCat('desodorantes')">Desodorantes</a>
+        </div>
+        <div>
+          <h5>Ayuda</h5>
+          <a onclick="openInfo('prot')">Cómo te protegemos</a>
+          <a onclick="openModal('modalLibro')">📕 LIBRO DE RECLAMACIONES</a>
+          <a onclick="openAdmin()">⚙️ Panel / Base de datos</a>
+          <a href="https://wa.me/51943012639" target="_blank" rel="noopener"
+            >💬 Escríbenos por WhatsApp</a
+          >
+        </div>
+      </div>
+      <div class="fbot">
+        <span
+          >© 2026 Esencia Dorada — Todos los derechos reservados. Hecho con 💜
+          en Perú.</span
+        >
+        <span
+          ><a onclick="openInfo('prot')">Cómo te protegemos</a> &nbsp;|&nbsp;
+          <a onclick="openModal('modalLibro')">LIBRO DE RECLAMACIONES</a></span
+        >
+      </div>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a
+      id="waFloat"
+      href="https://wa.me/51943012639?text=Hola%20Esencia%20Dorada%20%F0%9F%8C%B8%20quisiera%20informaci%C3%B3n%20de%20sus%20perfumes"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    >
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+        />
+      </svg>
+    </a>
+
+    <div id="toasts"></div>
+
+    <!-- ================= MODAL UBICACIÓN ================= -->
+    <div class="modal" id="modalUbic">
+      <div class="panel glass">
+        <button class="btn x" onclick="closeModal('modalUbic')">✕</button>
+        <h3>📍 Seleccione su ubicación</h3>
+        <div class="row">
+          <div>
+            <label>Departamento</label
+            ><select id="selDep"></select>
+          </div>
+          <div>
+            <label>Provincia</label
+            ><select id="selProv"></select>
+          </div>
+          <div>
+            <label>Distrito</label
+            ><select id="selDist"></select>
+          </div>
+        </div>
+        <p
+          id="ubicNote"
+          style="font-size: 11.5px; color: var(--dim); margin-top: 10px"
+        ></p>
+        <button
+          class="btn gold"
+          style="width: 100%; margin-top: 14px"
+          onclick="saveUbic()"
+        >
+          Guardar ubicación
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= MODAL LOGIN ================= -->
+    <div class="modal" id="modalLogin">
+      <div class="panel glass">
+        <button class="btn x" onclick="closeModal('modalLogin')">✕</button>
+        <h3 id="loginTitle">Iniciar sesión</h3>
+        <div class="row" style="margin-bottom: 6px">
+          <button class="btn" id="tabLogin" onclick="loginTab('in')">
+            Iniciar sesión
+          </button>
+          <button class="btn" id="tabReg" onclick="loginTab('up')">
+            Registrarme
+          </button>
+        </div>
+        <div id="regNameWrap" style="display: none">
+          <label>Nombre completo</label
+          ><input id="regName" placeholder="Tu nombre" />
+        </div>
+        <label>Correo electrónico</label
+        ><input id="logEmail" type="email" placeholder="tucorreo@ejemplo.com" />
+        <label>Contraseña</label
+        ><input id="logPass" type="password" placeholder="••••••••" />
+        <p class="err" id="logErr"></p>
+        <button
+          class="btn gold"
+          style="width: 100%; margin-top: 14px"
+          id="logSubmit"
+          onclick="doAuth()"
+        >
+          Ingresar
+        </button>
+        <div
+          style="
+            text-align: center;
+            margin: 14px 0;
+            color: var(--dim);
+            font-size: 12px;
+          "
+        >
+          — o —
+        </div>
+        <button
+          class="btn"
+          style="
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+          "
+          onclick="googleLogin()"
+        >
+          <svg width="19" height="19" viewBox="0 0 48 48">
+            <path
+              fill="#FFC107"
+              d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.5 6.1 29.5 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.3-.4-3.5z"
+            />
+            <path
+              fill="#FF3D00"
+              d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.5 6.1 29.5 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"
+            />
+            <path
+              fill="#4CAF50"
+              d="M24 44c5.2 0 10-2 13.6-5.2l-6.3-5.3C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"
+            />
+            <path
+              fill="#1976D2"
+              d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.3 5.3C37.2 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5z"
+            />
+          </svg>
+          Continuar con Google
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= MODAL PRODUCTO ================= -->
+    <div class="modal" id="modalProduct">
+      <div class="panel glass">
+        <button class="btn x" onclick="closeModal('modalProduct')">✕</button>
+        <div class="pd">
+          <div class="img"><img id="pdImg" src="" alt="" /></div>
+          <div class="dt">
+            <small
+              id="pdCat"
+              style="
+                color: var(--cyan);
+                letter-spacing: 1.5px;
+                font-size: 11px;
+                text-transform: uppercase;
+                font-weight: 700;
+              "
+            ></small>
+            <h3 id="pdName" style="margin: 6px 0"></h3>
+            <div class="price">
+              <b id="pdPrice" style="font-size: 26px"></b><s id="pdOld"></s
+              ><span class="badge" id="pdOff" style="position: static"></span>
+            </div>
+            <p
+              id="pdDesc"
+              style="
+                font-size: 13px;
+                color: var(--dim);
+                line-height: 1.6;
+                margin-top: 10px;
+              "
+            ></p>
+            <label>Cantidad</label>
+            <div class="qty">
+              <button class="btn" onclick="stepQty(-1)">−</button>
+              <input id="pdQty" value="1" readonly />
+              <button class="btn" onclick="stepQty(1)">+</button>
+              <span style="font-size: 13px; color: var(--dim)"
+                >Subtotal: <b id="pdSub" style="color: var(--gold)"></b
+              ></span>
+            </div>
+            <button
+              class="btn gold"
+              style="width: 100%"
+              id="pdAdd"
+              onclick="addFromModal()"
+            >
+              🛒 Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MODAL CARRITO / PAGO ================= -->
+    <div class="modal" id="modalCart">
+      <div class="panel glass">
+        <button class="btn x" onclick="closeModal('modalCart')">✕</button>
+        <!-- paso: carrito -->
+        <div id="stepCart">
+          <h3>🛒 Tu carrito</h3>
+          <div id="cartItems"></div>
+          <div id="cartSum"></div>
+          <button
+            class="btn gold"
+            style="width: 100%; margin-top: 14px"
+            id="btnToPay"
+            onclick="payStep('method')"
+          >
+            Continuar al pago →
+          </button>
+        </div>
+        <!-- paso: método -->
+        <div id="stepMethod" style="display: none">
+          <h3>¿Cómo quieres pagar?</h3>
+          <div class="row">
+            <div class="paycard glass" onclick="payStep('transfer')">
+              <span class="ic">🏦</span>Transferencia bancaria
+            </div>
+            <div class="paycard glass" onclick="payStep('yape')">
+              <span class="ic">📱</span>Yape
+            </div>
+          </div>
+          <button
+            class="btn"
+            style="width: 100%; margin-top: 16px"
+            onclick="payStep('cart')"
+          >
+            ← Volver al carrito
+          </button>
+        </div>
+        <!-- paso: transferencia -->
+        <div id="stepTransfer" style="display: none">
+          <h3>🏦 Pago por transferencia</h3>
+          <div
+            class="glass"
+            style="padding: 14px; font-size: 13px; line-height: 1.8"
+            id="bankInfo"
+          ></div>
+          <label>Banco</label>
+          <select id="trBank">
+            <option>BCP</option>
+            <option>Interbank</option>
+            <option>BBVA</option>
+            <option>Scotiabank</option>
+          </select>
+          <label>N° de cuenta / CCI a transferir</label>
+          <input
+            id="trAccount"
+            inputmode="numeric"
+            placeholder="Ejm. 194-5827361-0 o CCI"
+          />
+          <label>CVV (3 dígitos, opcional)</label>
+          <input
+            id="trCvv"
+            inputmode="numeric"
+            maxlength="3"
+            placeholder="123"
+          />
+          <p class="err" id="trErr"></p>
+          <button
+            class="btn gold"
+            style="width: 100%; margin-top: 14px"
+            id="trBtn"
+            onclick="confirmTransfer()"
+          >
+            Confirmar transferencia
+          </button>
+          <button
+            class="btn"
+            style="width: 100%; margin-top: 8px"
+            onclick="payStep('method')"
+          >
+            ← Volver
+          </button>
+        </div>
+        <!-- paso: yape -->
+        <div id="stepYape" style="display: none">
+          <h3>📱 Pago con Yape</h3>
+          <div class="qrbox glass">
+            <img id="yapeQR" src="" alt="QR Yape" />
+            <p style="font-size: 13px; color: var(--dim); margin-top: 10px">
+              Escanea el QR con tu app <b style="color: #8b5cf6">Yape</b> o
+              yapea al <b style="color: var(--gold)">+51 943 012 639</b>
+            </p>
+            <p style="font-size: 15px; margin-top: 6px">
+              Monto a yapear: <b id="yapeTotal" style="color: var(--gold)"></b>
+            </p>
+          </div>
+          <label>N° de operación Yape (opcional)</label>
+          <input id="yapeOp" placeholder="Ejm. 482913" />
+          <label>Adjuntar captura de pago (opcional)</label>
+          <input type="file" id="yapeProof" accept="image/*" />
+          <button
+            class="btn gold"
+            style="width: 100%; margin-top: 14px"
+            id="yapeBtn"
+            onclick="confirmYape()"
+          >
+            Ya realicé el pago Yape ✔
+          </button>
+          <button
+            class="btn"
+            style="width: 100%; margin-top: 8px"
+            onclick="payStep('method')"
+          >
+            ← Volver
+          </button>
+        </div>
+        <!-- paso: éxito -->
+        <div id="stepSuccess" style="display: none">
+          <div class="success">
+            <div class="chk">✓</div>
+            <h3 style="font-size: 24px">¡Pago correctamente realizado!</h3>
+            <p style="color: var(--dim); font-size: 14px; margin: 10px 0">
+              Pedido <b id="okCode" style="color: var(--cyan)"></b><br />Monto
+              pagado: <b id="okTotal" style="color: var(--gold)"></b
+              ><br />Método: <b id="okMethod"></b>
+            </p>
+            <p style="font-size: 12.5px; color: var(--dim)">
+              Te enviaremos la confirmación por WhatsApp 📱
+            </p>
+            <button
+              class="btn gold"
+              style="width: 100%; margin-top: 16px"
+              onclick="finishOrder()"
+            >
+              Seguir comprando 🌸
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MODAL ADMIN / BASE DE DATOS ================= -->
+    <div class="modal" id="modalAdmin">
+      <div class="panel wide glass">
+        <button class="btn x" onclick="closeModal('modalAdmin')">✕</button>
+        <div id="adminGate">
+          <h3>🔐 Acceso administrador</h3>
+          <label>Contraseña del panel</label
+          ><input id="adminPass" type="password" placeholder="••••••••" />
+          <p class="err" id="adminErr"></p>
+          <button
+            class="btn gold"
+            style="width: 100%; margin-top: 14px"
+            onclick="adminUnlock()"
+          >
+            Entrar al panel
+          </button>
+          <p style="font-size: 11.5px; color: var(--dim); margin-top: 10px">
+            Contraseña inicial: <b>admin123</b> (cámbiala abajo).
+          </p>
+        </div>
+        <div id="adminBody" style="display: none">
+          <h3>
+            ⚙️ Panel / Base de datos
+            <span class="syncpill" id="syncPill"></span>
+          </h3>
+          <div class="atab">
+            <button class="btn on" id="atP" onclick="adminTab('p')">
+              📦 Productos
+            </button>
+            <button class="btn" id="atQ" onclick="adminTab('q')">
+              📱 QR Yape / Banco
+            </button>
+            <button class="btn" id="atD" onclick="adminTab('d')">
+              🗄️ Datos y sincronización
+            </button>
+          </div>
+          <!-- productos -->
+          <div id="tabP">
+            <div class="plist" id="adminList"></div>
+            <h4 style="font-size: 15px; margin: 8px 0" id="formTitle">
+              ➕ Agregar / editar producto
+            </h4>
+            <div class="row">
+              <div style="flex: 2">
+                <label>Nombre del producto</label
+                ><input id="fName" placeholder="Ejm. Perfume Rosa EDP 50ml" />
+              </div>
+              <div>
+                <label>Categoría</label
+                ><select id="fCat"></select>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label>Precio (S/)</label
+                ><input
+                  id="fPrice"
+                  type="number"
+                  step="0.10"
+                  min="0"
+                  placeholder="99.90"
+                />
+              </div>
+              <div>
+                <label>Precio anterior (S/, opcional)</label
+                ><input
+                  id="fOld"
+                  type="number"
+                  step="0.10"
+                  min="0"
+                  placeholder="129.90"
+                />
+              </div>
+            </div>
+            <label>Descripción</label
+            ><textarea
+              id="fDesc"
+              rows="2"
+              placeholder="Notas, tamaño, duración..."
+            ></textarea>
+            <label>📷 Subir foto del producto</label>
+            <div class="row" style="align-items: center">
+              <input type="file" id="fImg" accept="image/*" />
+              <img class="previmg" id="fPrev" src="" alt="" />
+            </div>
+            <label>…o pega una URL de imagen</label
+            ><input id="fUrl" placeholder="https://..." />
+            <div class="row" style="margin-top: 14px">
+              <button class="btn gold" onclick="saveProduct()">
+                💾 Guardar (sincroniza automático)
+              </button>
+              <button class="btn" onclick="clearForm()">Limpiar</button>
+            </div>
+          </div>
+          <!-- qr / banco -->
+          <div id="tabQ" style="display: none">
+            <label>📱 Subir imagen del QR de Yape (se muestra al cobrar)</label>
+            <div class="row" style="align-items: center">
+              <input type="file" id="fQR" accept="image/*" />
+              <img class="previmg" id="qrPrev" src="" alt="" />
+            </div>
+            <label>Banco / cuenta receptora (transferencias)</label>
+            <textarea id="fBank" rows="3"></textarea>
+            <label>Cambiar contraseña del panel</label>
+            <input id="fPass" placeholder="Nueva contraseña" />
+            <button
+              class="btn gold"
+              style="width: 100%; margin-top: 14px"
+              onclick="saveConfig()"
+            >
+              💾 Guardar configuración
+            </button>
+          </div>
+          <!-- datos -->
+          <div id="tabD" style="display: none">
+            <p style="font-size: 13px; color: var(--dim); line-height: 1.7">
+              La base de datos se guarda en este dispositivo y se
+              <b style="color: #8ef0b0">sincroniza automáticamente</b> con la
+              tienda (y con otras pestañas abiertas) al instante. Usa Exportar
+              para respaldar o mover tu catálogo a otro dispositivo.
+            </p>
+            <div class="row" style="margin-top: 14px">
+              <button class="btn" onclick="exportDB()">
+                ⬇️ Exportar base de datos
+              </button>
+              <button
+                class="btn"
+                onclick="document.getElementById('importDB').click()"
+              >
+                ⬆️ Importar base de datos
+              </button>
+              <input
+                type="file"
+                id="importDB"
+                accept=".json"
+                style="display: none"
+              />
+              <button class="btn" onclick="resetDB()">
+                ♻️ Restaurar catálogo inicial
+              </button>
+            </div>
+            <p class="syncpill" id="syncPill2" style="margin: 14px 0 0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MODAL LIBRO DE RECLAMACIONES ================= -->
+    <div class="modal" id="modalLibro">
+      <div class="panel glass">
+        <button class="btn x" onclick="closeModal('modalLibro')">✕</button>
+        <h3>📕 Libro de Reclamaciones</h3>
+        <div class="row">
+          <div>
+            <label>Tipo</label
+            ><select id="lbType">
+              <option>Reclamo</option>
+              <option>Queja</option>
+            </select>
+          </div>
+          <div><label>Nombres y apellidos</label><input id="lbName" /></div>
+        </div>
+        <div class="row">
+          <div>
+            <label>DNI / CE</label><input id="lbDni" inputmode="numeric" />
+          </div>
+          <div><label>Correo</label><input id="lbMail" type="email" /></div>
+        </div>
+        <label>Detalle del reclamo</label
+        ><textarea id="lbDesc" rows="4"></textarea>
+        <p class="err" id="lbErr"></p>
+        <button
+          class="btn gold"
+          style="width: 100%; margin-top: 14px"
+          onclick="saveClaim()"
+        >
+          Enviar reclamo
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= MODAL INFO ================= -->
+    <div class="modal" id="modalInfo">
+      <div class="panel glass">
+        <button class="btn x" onclick="closeModal('modalInfo')">✕</button>
+        <div id="infoBody"></div>
+      </div>
+    </div>
+
+    <script>
+      /* =====================================================
+   ESENCIA DORADA — Tienda + Base de datos local (auto-sync)
+===================================================== */
+      const $ = (s) => document.querySelector(s),
+        $$ = (s) => [...document.querySelectorAll(s)];
+      const LS = {
+        db: "esencia_db_v1",
+        cart: "esencia_cart_v1",
+        user: "esencia_user_v1",
+        ubic: "esencia_ubic_v1",
+        ubigeo: "ubigeo_cache_v1",
+      };
+      const CATS = {
+        home: "Home",
+        colonias: "Colonias Público general",
+        dama: "Perfumes para dama",
+        caballero: "Perfumes para caballero",
+        juveniles: "Perfumes juveniles",
+        spray: "Spray corporal",
+        cremas: "Cremas corporales",
+        desodorantes: "Desodorantes",
+      };
+      const MENU = [
+        "colonias",
+        "caballero",
+        "dama",
+        "juveniles",
+        "spray",
+        "cremas",
+      ];
+      const IMG = {
+        colonias1:
+          "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/1a3cd88ce-384b-4dbe-9c8e-47cca6844c3e8876.png",
+        colonias2:
+          "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/0a3cd88ce-384b-4dbe-9c8e-47cca6844c3e4610.png",
+        dama1:
+          "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/2a3cd88ce-384b-4dbe-9c8e-47cca6844c3e9443.png",
+        dama2:
+          "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/7a3cd88ce-384b-4dbe-9c8e-47cca6844c3e3774.png",
+        dama3:
+          "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/5a3cd88ce-384b-4dbe-9c8e-47cca6844c3e9653.png",
+        cab1: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/3a3cd88ce-384b-4dbe-9c8e-47cca6844c3e4875.png",
+        cab2: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/9a3cd88ce-384b-4dbe-9c8e-47cca6844c3e4217.png",
+        juv1: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/0a3cd88ce-384b-4dbe-9c8e-47cca6844c3e3122.png",
+        juv2: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/4a3cd88ce-384b-4dbe-9c8e-47cca6844c3e8452.png",
+        spr1: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/3a3cd88ce-384b-4dbe-9c8e-47cca6844c3e4194.png",
+        spr2: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/6a3cd88ce-384b-4dbe-9c8e-47cca6844c3e9738.png",
+        cre1: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/2a3cd88ce-384b-4dbe-9c8e-47cca6844c3e9212.png",
+        cre2: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/4a3cd88ce-384b-4dbe-9c8e-47cca6844c3e6382.png",
+        deo1: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/4a3cd88ce-384b-4dbe-9c8e-47cca6844c3e5806.png",
+        deo2: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/1a3cd88ce-384b-4dbe-9c8e-47cca6844c3e6548.png",
+      };
+      const FALLBACK =
+        "data:image/svg+xml;utf8," +
+        encodeURIComponent(
+          "<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#7b2ff7'/><stop offset='1' stop-color='#f72fb0'/></linearGradient></defs><rect width='400' height='400' fill='url(#g)'/><text x='200' y='240' font-size='130' text-anchor='middle'>🌸</text></svg>",
+        );
+      const SEED = [
+        {
+          id: 1,
+          name: "Colonia Citrus Marine 100 ml",
+          cat: "colonias",
+          price: 79.9,
+          old: 99.9,
+          img: IMG.colonias1,
+          desc: "Fragancia fresca unisex con notas de cítricos marinos, ideal para el día a día.",
+        },
+        {
+          id: 2,
+          name: "Colonia Limón & Nerolí 60 ml",
+          cat: "colonias",
+          price: 49.9,
+          old: null,
+          img: IMG.colonias2,
+          desc: "Colonia clásica para todo público, ligera y duradera.",
+        },
+        {
+          id: 3,
+          name: "Perfume Rosa Pink EDP 50 ml",
+          cat: "dama",
+          price: 189.9,
+          old: 249.9,
+          img: IMG.dama1,
+          desc: "Eau de parfum floral femenino con rosas, peonías y fondo de almizcle.",
+        },
+        {
+          id: 4,
+          name: "Bruma Floral Rosé 80 ml",
+          cat: "dama",
+          price: 129.9,
+          old: null,
+          img: IMG.dama2,
+          desc: "Delicada bruma perfumada para dama, perfecta para regalar.",
+        },
+        {
+          id: 5,
+          name: "Sensuos Night EDP 90 ml",
+          cat: "dama",
+          price: 219.9,
+          old: 289.9,
+          img: IMG.dama3,
+          desc: "Fragancia oriental intensa para noches especiales.",
+        },
+        {
+          id: 6,
+          name: "Perfume Noir Gold EDT 100 ml",
+          cat: "caballero",
+          price: 219.9,
+          old: 279.9,
+          img: IMG.cab1,
+          desc: "Amaderado elegante con ámbar y especias, larga duración.",
+        },
+        {
+          id: 7,
+          name: "Turathi Blue EDP 90 ml",
+          cat: "caballero",
+          price: 199.9,
+          old: null,
+          img: IMG.cab2,
+          desc: "Aromático fresco para caballero, estela moderna y sofisticada.",
+        },
+        {
+          id: 8,
+          name: "Perfume Juvenil Violet Fruit 50 ml",
+          cat: "juveniles",
+          price: 69.9,
+          old: 89.9,
+          img: IMG.juv1,
+          desc: "Divertido y frutal: durazno, lavanda y vainilla.",
+        },
+        {
+          id: 9,
+          name: "Perfume Juvenil Candy Hearts 50 ml",
+          cat: "juveniles",
+          price: 64.9,
+          old: null,
+          img: IMG.juv2,
+          desc: "Dulce y chispeante, favorito de los más jóvenes.",
+        },
+        {
+          id: 10,
+          name: "Body Mist Lavender Tea 250 ml",
+          cat: "spray",
+          price: 39.9,
+          old: 54.9,
+          img: IMG.spr1,
+          desc: "Spray corporal de lavanda y té de limón, sensación fresca todo el día.",
+        },
+        {
+          id: 11,
+          name: "Violet Fields Body Mist 125 ml",
+          cat: "spray",
+          price: 37.9,
+          old: null,
+          img: IMG.spr2,
+          desc: "Bruma corporal de lavanda con acabado irisado.",
+        },
+        {
+          id: 12,
+          name: "Crema Corporal Karité Rosé 300 ml",
+          cat: "cremas",
+          price: 45.9,
+          old: 59.9,
+          img: IMG.cre1,
+          desc: "Hidratación profunda con manteca de karité y extracto de rosas.",
+        },
+        {
+          id: 13,
+          name: "Crema Hidratante Natural 250 ml",
+          cat: "cremas",
+          price: 42.9,
+          old: null,
+          img: IMG.cre2,
+          desc: "Crema suave de rápida absorción para pieles sensibles.",
+        },
+        {
+          id: 14,
+          name: "Desodorante Stick Lavanda 75 ml",
+          cat: "desodorantes",
+          price: 25.9,
+          old: 32.9,
+          img: IMG.deo1,
+          desc: "Protección 48 h con aroma suave a lavanda.",
+        },
+        {
+          id: 15,
+          name: "Desodorante Stick Citrus 50 g",
+          cat: "desodorantes",
+          price: 22.9,
+          old: null,
+          img: IMG.deo2,
+          desc: "Frescura cítrica de larga duración, sin manchas.",
+        },
+      ];
+      const SLIDES = [
+        {
+          img: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/6a3cd88ce-384b-4dbe-9c8e-47cca6844c3e9556.png",
+          tag: "Nueva colección 2026",
+          h: "Fragancias que dejan huella",
+          p: "Descubre perfumes originales con hasta 30% de descuento.",
+          cat: "home",
+        },
+        {
+          img: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/2a3cd88ce-384b-4dbe-9c8e-47cca6844c3e8603.png",
+          tag: "Para ella",
+          h: "Perfumes para Dama",
+          p: "Flores, rosas y dulzura en cada gota.",
+          cat: "dama",
+        },
+        {
+          img: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/7a3cd88ce-384b-4dbe-9c8e-47cca6844c3e2297.png",
+          tag: "Para él",
+          h: "Perfumes para Caballero",
+          p: "Carácter y elegancia en frascos icónicos.",
+          cat: "caballero",
+        },
+        {
+          img: "https://image.qwenlm.ai/public_source/ce15f4d8-9e9b-4e79-88cb-a6083d22489b/1a3cd88ce-384b-4dbe-9c8e-47cca6844c3e4432.png",
+          tag: "Body mist",
+          h: "Spray Corporal",
+          p: "Frescura instantánea para tu piel, todo el día.",
+          cat: "spray",
+        },
+      ];
+
+      /* ---------- estado ---------- */
+      let DB = load(LS.db, null) || {
+        products: JSON.parse(JSON.stringify(SEED)),
+        config: {
+          adminPass: "admin123",
+          yapeQR: "",
+          bank: "BCP Soles: 194-5827361-0\nCCI: 100-200-300-4005827361-08\nTitular: Esencia Dorada EIRL",
+        },
+        users: [],
+        orders: [],
+        claims: [],
+        updated: Date.now(),
+      };
+      let CART = load(LS.cart, []);
+      let USER = load(LS.user, null);
+      let UBIC = load(LS.ubic, null);
+      let state = {
+        cat: "home",
+        search: "",
+        qty: 1,
+        pid: null,
+        editing: null,
+        slide: 0,
+      };
+
+      function load(k, d) {
+        try {
+          const v = localStorage.getItem(k);
+          return v ? JSON.parse(v) : d;
+        } catch (e) {
+          return d;
+        }
+      }
+      function save(k, v) {
+        localStorage.setItem(k, JSON.stringify(v));
+      }
+      const fmt = (n) => "S/ " + Number(n).toFixed(2);
+      function stamp() {
+        const t = new Date().toLocaleTimeString("es-PE");
+        const s = "☁️ Sincronizado: " + t;
+        $("#syncPill").textContent = s;
+        $("#syncPill2").textContent = s;
+      }
+      function saveDB() {
+        DB.updated = Date.now();
+        save(LS.db, DB);
+        stamp();
+        renderGrid();
+        renderAdminList();
+      }
+      window.addEventListener("storage", (e) => {
+        if (e.key === LS.db) {
+          DB = load(LS.db, DB);
+          renderGrid();
+          renderAdminList();
+          stamp();
+          toast("🔄 Base de datos sincronizada automáticamente");
+        }
+        if (e.key === LS.cart) {
+          CART = load(LS.cart, []);
+          renderCart();
+        }
+      });
+
+      /* ---------- toast ---------- */
+      function toast(msg) {
+        const t = document.createElement("div");
+        t.className = "toast glass";
+        t.textContent = msg;
+        $("#toasts").appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = 0;
+          t.style.transition = ".4s";
+          setTimeout(() => t.remove(), 400);
+        }, 2600);
+      }
+      function openModal(id) {
+        $("#" + id).classList.add("show");
+      }
+      function closeModal(id) {
+        $("#" + id).classList.remove("show");
+      }
+      document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal"))
+          e.target.classList.remove("show");
+      });
+
+      /* ---------- header: menú ---------- */
+      $("#menuDrop").innerHTML = MENU.map(
+        (c) =>
+          `<button onclick="setCat('${c}');closeMenu()">🌸 ${CATS[c]}</button>`,
+      ).join("");
+      $("#btnMenu").onclick = (e) => {
+        e.stopPropagation();
+        $("#menuDrop").classList.toggle("show");
+        $("#btnMenu").classList.toggle("open");
+      };
+      function closeMenu() {
+        $("#menuDrop").classList.remove("show");
+        $("#btnMenu").classList.remove("open");
+      }
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#menuDrop") && !e.target.closest("#btnMenu"))
+          closeMenu();
+      });
+
+      /* ---------- categorías ---------- */
+      $("#catNav").innerHTML = Object.keys(CATS)
+        .map(
+          (c) =>
+            `<button class="btn" data-c="${c}" onclick="setCat('${c}')">${CATS[c]}</button>`,
+        )
+        .join("");
+      $("#fCat").innerHTML = Object.keys(CATS)
+        .filter((c) => c !== "home")
+        .map((c) => `<option value="${c}">${CATS[c]}</option>`)
+        .join("");
+      function setCat(c) {
+        state.cat = c;
+        state.search = "";
+        $("#searchInput").value = "";
+        renderGrid();
+        closeMenu();
+        document.querySelector("main").scrollIntoView({ behavior: "smooth" });
+      }
+      $("#searchInput").addEventListener("input", (e) => {
+        state.search = e.target.value.toLowerCase().trim();
+        if (state.search) state.cat = "home";
+        renderGrid();
+      });
+
+      /* ---------- grid ---------- */
+      function renderGrid() {
+        $$("#catNav button").forEach((b) =>
+          b.classList.toggle("on", b.dataset.c === state.cat && !state.search),
+        );
+        let list = DB.products.filter(
+          (p) => state.cat === "home" || p.cat === state.cat,
+        );
+        if (state.search)
+          list = DB.products.filter((p) =>
+            p.name.toLowerCase().includes(state.search),
+          );
+        $("#catTitle").textContent = state.search
+          ? `Resultados para “${state.search}”`
+          : CATS[state.cat] === "Home"
+            ? "Todos nuestros productos"
+            : CATS[state.cat];
+        $("#grid").innerHTML = list.length
+          ? list
+              .map((p) => {
+                const off = p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
+                return `<div class="card glass" onclick="openProduct(${p.id})">
+     <div class="ph">${off ? `<span class="badge">-${off}%</span>` : ""}<img src="${p.img}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK}'" alt="${p.name}"></div>
+     <div class="info"><span class="cat">${CATS[p.cat]}</span><h4>${p.name}</h4>
+     <div class="price"><b>${fmt(p.price)}</b>${p.old ? `<s>${fmt(p.old)}</s>` : ""}</div></div></div>`;
+              })
+              .join("")
+          : `<p style="color:var(--dim);grid-column:1/-1;text-align:center;padding:40px">No se encontraron productos 😕</p>`;
+      }
+
+      /* ---------- carrusel ---------- */
+      $("#slides").innerHTML = SLIDES.map(
+        (s) =>
+          `<div class="slide" style="background-image:url('${s.img}')"><div class="txt"><small>${s.tag}</small><h2>${s.h}</h2><p>${s.p}</p><button class="btn gold" onclick="setCat('${s.cat}')">Comprar ahora</button></div></div>`,
+      ).join("");
+      $("#dots").innerHTML = SLIDES.map(
+        (_, i) => `<i onclick="goSlide(${i})"></i>`,
+      ).join("");
+      function goSlide(i) {
+        state.slide = (i + SLIDES.length) % SLIDES.length;
+        $("#slides").style.transform = `translateX(-${state.slide * 100}%)`;
+        $$("#dots i").forEach((d, j) =>
+          d.classList.toggle("on", j === state.slide),
+        );
+      }
+      function moveSlide(d) {
+        goSlide(state.slide + d);
+      }
+      setInterval(() => moveSlide(1), 5000);
+      goSlide(0);
+      let tx = 0;
+      $("#carousel").addEventListener(
+        "touchstart",
+        (e) => (tx = e.touches[0].clientX),
+        { passive: true },
+      );
+      $("#carousel").addEventListener(
+        "touchend",
+        (e) => {
+          const dx = e.changedTouches[0].clientX - tx;
+          if (Math.abs(dx) > 40) moveSlide(dx < 0 ? 1 : -1);
+        },
+        { passive: true },
+      );
+
+      /* ---------- producto ---------- */
+      function openProduct(id) {
+        const p = DB.products.find((x) => x.id === id);
+        if (!p) return;
+        state.pid = id;
+        state.qty = 1;
+        $("#pdImg").src = p.img;
+        $("#pdImg").onerror = function () {
+          this.onerror = null;
+          this.src = FALLBACK;
+        };
+        $("#pdCat").textContent = CATS[p.cat];
+        $("#pdName").textContent = p.name;
+        $("#pdPrice").textContent = fmt(p.price);
+        $("#pdOld").textContent = p.old ? fmt(p.old) : "";
+        const off = p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
+        $("#pdOff").style.display = off ? "inline-block" : "none";
+        $("#pdOff").textContent = "-" + off + "%";
+        $("#pdDesc").textContent = p.desc || "";
+        updQty();
+        openModal("modalProduct");
+      }
+      function stepQty(d) {
+        state.qty = Math.max(0, Math.min(99, state.qty + d));
+        updQty();
+      }
+      function updQty() {
+        $("#pdQty").value = state.qty;
+        const p = DB.products.find((x) => x.id === state.pid);
+        $("#pdSub").textContent = fmt(p.price * state.qty);
+        $("#pdAdd").disabled = state.qty === 0;
+      }
+      function addFromModal() {
+        if (state.qty < 1) return toast("Selecciona al menos 1 unidad");
+        addToCart(state.pid, state.qty);
+        closeModal("modalProduct");
+      }
+      function addToCart(id, qty) {
+        const it = CART.find((c) => c.id === id);
+        if (it) it.qty += qty;
+        else CART.push({ id, qty });
+        save(LS.cart, CART);
+        renderCart();
+        toast("✅ Producto agregado al carrito");
+        setTimeout(() => {
+          openModal("modalCart");
+          payStep("cart");
+        }, 500);
+      }
+
+      /* ---------- carrito ---------- */
+      function cartTotals() {
+        let sub = 0,
+          sav = 0;
+        CART.forEach((c) => {
+          const p = DB.products.find((x) => x.id === c.id);
+          if (p) {
+            sub += p.price * c.qty;
+            if (p.old) sav += (p.old - p.price) * c.qty;
+          }
+        });
+        const ship = sub >= 39 || sub === 0 ? 0 : 9.9;
+        return { sub, sav, ship, total: sub + ship };
+      }
+      function renderCart() {
+        const n = CART.reduce((a, c) => a + c.qty, 0);
+        $("#cartCount").textContent = n;
+        $("#cartItems").innerHTML = CART.length
+          ? CART.map((c) => {
+              const p = DB.products.find((x) => x.id === c.id);
+              if (!p) return "";
+              return `<div class="citem glass"><img src="${p.img}" onerror="this.onerror=null;this.src='${FALLBACK}'"><div class="n"><b>${p.name}</b><span>${fmt(p.price)}</span></div>
+   <button class="btn mini" onclick="cQty(${p.id},-1)">−</button><b style="min-width:22px;text-align:center">${c.qty}</b><button class="btn mini" onclick="cQty(${p.id},1)">+</button>
+   <b style="color:var(--gold);min-width:70px;text-align:right">${fmt(p.price * c.qty)}</b>
+   <button class="btn mini" onclick="cDel(${p.id})">✕</button></div>`;
+            }).join("")
+          : '<p style="text-align:center;color:var(--dim);padding:26px">Tu carrito está vacío 🛒<br><small>Agrega productos desde la tienda</small></p>';
+        const t = cartTotals();
+        $("#cartSum").innerHTML = CART.length
+          ? `<div class="sumline"><span>Subtotal</span><span>${fmt(t.sub)}</span></div>
+  ${t.sav ? `<div class="sumline"><span>Ahorros 🎉</span><span style="color:#8ef0b0">-${fmt(t.sav)}</span></div>` : ""}
+  <div class="sumline"><span>Envío</span><span style="color:${t.ship ? "var(--txt)" : "#8ef0b0"}">${t.ship ? fmt(t.ship) : "¡GRATIS! 🚚"}</span></div>
+  <div class="sumline total"><span>Total</span><b>${fmt(t.total)}</b></div>`
+          : "";
+        $("#btnToPay").disabled = !CART.length;
+      }
+      function cQty(id, d) {
+        const it = CART.find((c) => c.id === id);
+        it.qty += d;
+        if (it.qty <= 0) CART = CART.filter((c) => c.id !== id);
+        save(LS.cart, CART);
+        renderCart();
+      }
+      function cDel(id) {
+        CART = CART.filter((c) => c.id !== id);
+        save(LS.cart, CART);
+        renderCart();
+      }
+      $("#btnCart").onclick = () => {
+        openModal("modalCart");
+        payStep("cart");
+      };
+
+      /* ---------- pago ---------- */
+      function payStep(s) {
+        ["Cart", "Method", "Transfer", "Yape", "Success"].forEach(
+          (x) => ($("#step" + x).style.display = "none"),
+        );
+        $("#step" + s[0].toUpperCase() + s.slice(1)).style.display = "block";
+        if (s === "transfer")
+          $("#bankInfo").innerHTML =
+            "<b>Datos de recepción:</b><br>" +
+            DB.config.bank.replace(/\n/g, "<br>");
+        if (s === "yape") {
+          const t = cartTotals();
+          $("#yapeTotal").textContent = fmt(t.total);
+          $("#yapeQR").src =
+            DB.config.yapeQR ||
+            "https://api.qrserver.com/v1/create-qr-code/?size=220x220&bgcolor=FFFFFF&color=6B1FBF&data=" +
+              encodeURIComponent(
+                "YAPE|Esencia Dorada|+51 943 012 639|Monto: " + fmt(t.total),
+              );
+        }
+      }
+      function confirmTransfer() {
+        const acc = $("#trAccount").value.replace(/\D/g, ""),
+          cvv = $("#trCvv").value.replace(/\D/g, "");
+        if (acc.length < 8 && cvv.length !== 3) {
+          const e = $("#trErr");
+          e.style.display = "block";
+          e.textContent =
+            "⚠️ Ingresa un N° de cuenta/CCI válido (mín. 8 dígitos) o un CVV de 3 dígitos.";
+          return;
+        }
+        $("#trErr").style.display = "none";
+        processPay("Transferencia bancaria");
+      }
+      function confirmYape() {
+        processPay("Yape");
+      }
+      function processPay(method) {
+        const btn = method === "Yape" ? $("#yapeBtn") : $("#trBtn");
+        btn.disabled = true;
+        btn.textContent = "⏳ Procesando pago...";
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent =
+            method === "Yape"
+              ? "Ya realicé el pago Yape ✔"
+              : "Confirmar transferencia";
+          const t = cartTotals();
+          const code =
+            "PED-" +
+            new Date().toISOString().slice(0, 10).replace(/-/g, "") +
+            "-" +
+            Math.floor(1000 + Math.random() * 9000);
+          DB.orders.push({
+            code,
+            date: new Date().toISOString(),
+            method,
+            total: t.total,
+            items: CART.map((c) => ({
+              ...c,
+              name: (DB.products.find((p) => p.id === c.id) || {}).name,
+            })),
+          });
+          saveDB();
+          $("#okCode").textContent = code;
+          $("#okTotal").textContent = fmt(t.total);
+          $("#okMethod").textContent = method;
+          CART = [];
+          save(LS.cart, CART);
+          renderCart();
+          payStep("success");
+          toast("💜 ¡Gracias por tu compra!");
+        }, 1600);
+      }
+      function finishOrder() {
+        closeModal("modalCart");
+        payStep("cart");
+      }
+
+      /* ---------- ubicación (ubigeo Perú) ---------- */
+      let UBI = null;
+      const FB = {
+        deps: [
+          ["01", "Amazonas"],
+          ["02", "Áncash"],
+          ["03", "Apurímac"],
+          ["04", "Arequipa"],
+          ["05", "Ayacucho"],
+          ["06", "Cajamarca"],
+          ["07", "Callao"],
+          ["08", "Cusco"],
+          ["09", "Huancavelica"],
+          ["10", "Huánuco"],
+          ["11", "Ica"],
+          ["12", "Junín"],
+          ["13", "La Libertad"],
+          ["14", "Lambayeque"],
+          ["15", "Lima"],
+          ["16", "Loreto"],
+          ["17", "Madre de Dios"],
+          ["18", "Moquegua"],
+          ["19", "Pasco"],
+          ["20", "Piura"],
+          ["21", "Puno"],
+          ["22", "San Martín"],
+          ["23", "Tacna"],
+          ["24", "Tumbes"],
+          ["25", "Ucayali"],
+        ],
+        provs: {
+          "01": [
+            "Chachapoyas",
+            "Bagua",
+            "Bongará",
+            "Condorcanqui",
+            "Luya",
+            "Rodríguez de Mendoza",
+            "Utcubamba",
+          ],
+          "04": [
+            "Arequipa",
+            "Camaná",
+            "Caravelí",
+            "Castilla",
+            "Caylloma",
+            "Condesuyos",
+            "Islay",
+            "La Unión",
+          ],
+          "07": ["Callao"],
+          "08": [
+            "Cusco",
+            "Acomayo",
+            "Anta",
+            "Calca",
+            "Canchis",
+            "Espinar",
+            "La Convención",
+            "Urubamba",
+          ],
+          13: [
+            "Trujillo",
+            "Ascope",
+            "Chepén",
+            "Pacasmayo",
+            "Sánchez Carrión",
+            "Virú",
+          ],
+          15: [
+            "Lima",
+            "Barranca",
+            "Cajatambo",
+            "Canta",
+            "Cañete",
+            "Huaral",
+            "Huarochirí",
+            "Huaura",
+            "Oyón",
+            "Yauyos",
+          ],
+          20: [
+            "Piura",
+            "Ayabaca",
+            "Huancabamba",
+            "Morropón",
+            "Paita",
+            "Sechura",
+            "Sullana",
+            "Talara",
+          ],
+        },
+        dists: {
+          "0701": [
+            "Bellavista",
+            "Callao",
+            "Carmen de la Legua Reynoso",
+            "La Perla",
+            "La Punta",
+            "Mi Perú",
+            "Ventanilla",
+          ],
+          "0401": [
+            "Alto Selva Alegre",
+            "Arequipa",
+            "Cayma",
+            "Cerro Colorado",
+            "Characato",
+            "Chiguata",
+            "Jacobo Hunter",
+            "José Luis Bustamante y Rivero",
+            "La Joya",
+            "Mariano Melgar",
+            "Miraflores",
+            "Paucarpata",
+            "Sabandía",
+            "Sachaca",
+            "Yanahuara",
+          ],
+          "0801": [
+            "Cusco",
+            "Ccorca",
+            "Poroy",
+            "San Jerónimo",
+            "San Sebastián",
+            "Santiago",
+            "Saylla",
+            "Wanchaq",
+          ],
+          1301: [
+            "Trujillo",
+            "El Porvenir",
+            "Florencia de Mora",
+            "Huanchaco",
+            "Laredo",
+            "Moche",
+            "Poroto",
+            "Salaverry",
+            "Simbal",
+            "Víctor Larco Herrera",
+          ],
+          1501: [
+            "Ancón",
+            "Ate",
+            "Barranco",
+            "Breña",
+            "Carabayllo",
+            "Chaclacayo",
+            "Chorrillos",
+            "Cieneguilla",
+            "Comas",
+            "El Agustino",
+            "Independencia",
+            "Jesús María",
+            "La Molina",
+            "La Victoria",
+            "Lince",
+            "Los Olivos",
+            "Lurigancho",
+            "Lurín",
+            "Magdalena del Mar",
+            "Miraflores",
+            "Pueblo Libre",
+            "Puente Piedra",
+            "Rímac",
+            "San Borja",
+            "San Isidro",
+            "San Juan de Lurigancho",
+            "San Juan de Miraflores",
+            "San Luis",
+            "San Martín de Porres",
+            "San Miguel",
+            "Santa Anita",
+            "Santiago de Surco",
+            "Surquillo",
+            "Villa El Salvador",
+            "Villa María del Triunfo",
+          ],
+          2001: [
+            "Piura",
+            "Castilla",
+            "Catacaos",
+            "Cura Mori",
+            "El Tallán",
+            "La Arena",
+            "La Unión",
+            "Las Lomas",
+            "Tambo Grande",
+            "Veintiséis de Octubre",
+          ],
+        },
+      };
+      function buildFallback() {
+        UBI = {
+          deps: FB.deps.map(([c, n]) => ({ code: c, name: n })),
+          provs: [],
+          dists: [],
+        };
+        for (const d in FB.provs)
+          FB.provs[d].forEach((n, i) => {
+            const pc = d + String(i + 1).padStart(2, "0");
+            UBI.provs.push({ code: pc, name: n, dep: d });
+            (FB.dists[pc] || []).forEach((m) =>
+              UBI.dists.push({ code: pc + "01", name: m, prov: pc }),
+            );
+          });
+      }
+      async function loadUbigeo() {
+        const cache = load(LS.ubigeo, null);
+        if (cache) {
+          UBI = cache;
+          return fillDeps();
+        }
+        try {
+          const [d, p, di] = await Promise.all(
+            ["departamentos", "provincias", "distritos"].map((f) =>
+              fetch(
+                `https://cdn.jsdelivr.net/gh/joseluisq/ubigeos-peru@1.0.0/json/${f}.json`,
+              ).then((r) => r.json()),
+            ),
+          );
+          const nm = (o) => o.nombre || o.name || o.denominacion || "";
+          const cd = (o) => String(o.codigo ?? o.code ?? o.ubigeo ?? "");
+          UBI = {
+            deps: d
+              .map((o) => ({ code: cd(o).padStart(2, "0"), name: nm(o) }))
+              .sort((a, b) => a.name.localeCompare(b.name)),
+            provs: p.map((o) => ({
+              code: cd(o).padStart(4, "0"),
+              name: nm(o),
+              dep: cd(o).padStart(4, "0").slice(0, 2),
+            })),
+            dists: di.map((o) => ({
+              code: cd(o).padStart(6, "0"),
+              name: nm(o),
+              prov: cd(o).padStart(6, "0").slice(0, 4),
+            })),
+          };
+          save(LS.ubigeo, UBI);
+          $("#ubicNote").textContent = "";
+        } catch (e) {
+          buildFallback();
+          $("#ubicNote").textContent =
+            "⚠️ Sin conexión: mostrando lista local reducida (con internet se cargan todos los departamentos, provincias y distritos del Perú).";
+        }
+        fillDeps();
+      }
+      function fillDeps() {
+        $("#selDep").innerHTML =
+          '<option value="">Seleccione…</option>' +
+          UBI.deps
+            .map((d) => `<option value="${d.code}">${d.name}</option>`)
+            .join("");
+        fillProvs();
+      }
+      function fillProvs() {
+        const d = $("#selDep").value;
+        const list = UBI.provs
+          .filter((p) => p.dep === d)
+          .sort((a, b) => a.name.localeCompare(b.name));
+        $("#selProv").innerHTML =
+          '<option value="">Seleccione…</option>' +
+          list
+            .map((p) => `<option value="${p.code}">${p.name}</option>`)
+            .join("");
+        fillDists();
+      }
+      function fillDists() {
+        const p = $("#selProv").value;
+        const list = UBI.dists
+          .filter((x) => x.prov === p)
+          .sort((a, b) => a.name.localeCompare(b.name));
+        $("#selDist").innerHTML =
+          '<option value="">Seleccione…</option>' +
+          list
+            .map((x) => `<option value="${x.code}">${x.name}</option>`)
+            .join("");
+      }
+      $("#selDep").onchange = fillProvs;
+      $("#selProv").onchange = fillDists;
+      $("#btnUbic").onclick = () => {
+        openModal("modalUbic");
+        if (!UBI) loadUbigeo();
+        if (UBIC) {
+          $("#selDep").value = UBIC.dep || "";
+          fillProvs();
+          $("#selProv").value = UBIC.prov || "";
+          fillDists();
+          $("#selDist").value = UBIC.dist || "";
+        }
+      };
+      function saveUbic() {
+        const dn = $("#selDep").selectedOptions[0]?.text || "",
+          pn = $("#selProv").selectedOptions[0]?.text || "",
+          di = $("#selDist").selectedOptions[0]?.text || "";
+        if (!dn || dn === "Seleccione…")
+          return toast("Selecciona al menos el departamento");
+        UBIC = {
+          dep: $("#selDep").value,
+          prov: $("#selProv").value,
+          dist: $("#selDist").value,
+          dn,
+          pn,
+          di,
+        };
+        save(LS.ubic, UBIC);
+        renderUbic();
+        closeModal("modalUbic");
+        toast(
+          "📍 Ubicación guardada: " +
+            [dn, pn, di].filter((x) => x && x !== "Seleccione…").join(" · "),
+        );
+      }
+      function renderUbic() {
+        $("#ubicLbl").textContent = UBIC
+          ? [UBIC.dn, UBIC.pn, UBIC.di]
+              .filter((x) => x && x !== "Seleccione…")
+              .slice(-1)[0] || "UBICACIÓN"
+          : "UBICACIÓN";
+      }
+
+      /* ---------- login ---------- */
+      let loginMode = "in";
+      function loginTab(m) {
+        loginMode = m;
+        $("#tabLogin").classList.toggle("gold", m === "in");
+        $("#tabReg").classList.toggle("gold", m === "up");
+        $("#regNameWrap").style.display = m === "up" ? "block" : "none";
+        $("#loginTitle").textContent =
+          m === "up" ? "Crear cuenta" : "Iniciar sesión";
+        $("#logSubmit").textContent = m === "up" ? "Registrarme" : "Ingresar";
+        $("#logErr").style.display = "none";
+      }
+      $("#btnLogin").onclick = () => {
+        if (USER) {
+          if (confirm("¿Cerrar sesión de " + USER.name + "?")) {
+            USER = null;
+            localStorage.removeItem(LS.user);
+            renderUser();
+            toast("👋 Sesión cerrada");
+          }
+        } else {
+          openModal("modalLogin");
+          loginTab("in");
+        }
+      };
+      function doAuth() {
+        const em = $("#logEmail").value.trim(),
+          pw = $("#logPass").value,
+          er = $("#logErr");
+        if (!/^\S+@\S+\.\S+$/.test(em) || pw.length < 4) {
+          er.style.display = "block";
+          er.textContent =
+            "⚠️ Ingresa un correo válido y contraseña de 4+ caracteres.";
+          return;
+        }
+        er.style.display = "none";
+        if (loginMode === "up") {
+          if (DB.users.find((u) => u.email === em)) {
+            er.style.display = "block";
+            er.textContent =
+              "⚠️ Este correo ya está registrado. Inicia sesión.";
+            return;
+          }
+          DB.users.push({
+            email: em,
+            pass: btoa(pw),
+            name: $("#regName").value || em.split("@")[0],
+          });
+          saveDB();
+          USER = {
+            email: em,
+            name: $("#regName").value || em.split("@")[0],
+            provider: "correo",
+          };
+        } else {
+          const u = DB.users.find((u) => u.email === em && u.pass === btoa(pw));
+          if (!u) {
+            er.style.display = "block";
+            er.textContent =
+              "⚠️ Credenciales incorrectas o cuenta no registrada.";
+            return;
+          }
+          USER = { email: em, name: u.name, provider: "correo" };
+        }
+        save(LS.user, USER);
+        renderUser();
+        closeModal("modalLogin");
+        toast("💜 ¡Bienvenido/a, " + USER.name + "!");
+      }
+      function googleLogin() {
+        toast("🔗 Conectando con Google…");
+        setTimeout(() => {
+          USER = {
+            email: "cliente@gmail.com",
+            name: "Cuenta Google",
+            provider: "google",
+          };
+          save(LS.user, USER);
+          renderUser();
+          closeModal("modalLogin");
+          toast("✅ Sesión iniciada con Google");
+        }, 900);
+      }
+      function renderUser() {
+        const l = $("#loginLbl");
+        if (USER) {
+          l.textContent = USER.name;
+          l.parentElement.title = "Cerrar sesión";
+        } else {
+          l.textContent = "Iniciar sesión";
+        }
+      }
+
+      /* ---------- admin / base de datos ---------- */
+      function openAdmin() {
+        openModal("modalAdmin");
+        const ok = sessionStorage.getItem("adminOk") === "1";
+        $("#adminGate").style.display = ok ? "none" : "block";
+        $("#adminBody").style.display = ok ? "block" : "none";
+        if (ok) {
+          renderAdminList();
+          $("#fBank").value = DB.config.bank;
+          $("#qrPrev").src = DB.config.yapeQR || FALLBACK;
+          stamp();
+        }
+      }
+      function adminUnlock() {
+        if ($("#adminPass").value === DB.config.adminPass) {
+          sessionStorage.setItem("adminOk", "1");
+          $("#adminGate").style.display = "none";
+          $("#adminBody").style.display = "block";
+          renderAdminList();
+          $("#fBank").value = DB.config.bank;
+          $("#qrPrev").src = DB.config.yapeQR || FALLBACK;
+          stamp();
+          toast("🔓 Panel desbloqueado");
+        } else {
+          const e = $("#adminErr");
+          e.style.display = "block";
+          e.textContent = "⚠️ Contraseña incorrecta";
+        }
+      }
+      function adminTab(t) {
+        ["P", "Q", "D"].forEach((x) => {
+          $("#tab" + x).style.display = "none";
+          $("#at" + x).classList.remove("on");
+        });
+        $("#tab" + t.toUpperCase()).style.display = "block";
+        $("#at" + t.toUpperCase()).classList.add("on");
+      }
+      function renderAdminList() {
+        $("#adminList").innerHTML = DB.products
+          .map(
+            (
+              p,
+            ) => `<div class="prow"><img src="${p.img}" onerror="this.onerror=null;this.src='${FALLBACK}'">
+ <div class="t"><b>${p.name}</b><span>${fmt(p.price)}</span> · ${CATS[p.cat]}</div>
+ <button class="btn mini" onclick="editP(${p.id})">✏️</button><button class="btn mini" onclick="delP(${p.id})">🗑️</button></div>`,
+          )
+          .join("");
+      }
+      function editP(id) {
+        const p = DB.products.find((x) => x.id === id);
+        state.editing = id;
+        $("#formTitle").textContent = "✏️ Editando: " + p.name;
+        $("#fName").value = p.name;
+        $("#fCat").value = p.cat;
+        $("#fPrice").value = p.price;
+        $("#fOld").value = p.old || "";
+        $("#fDesc").value = p.desc || "";
+        $("#fUrl").value = p.img.startsWith("data:") ? "" : p.img;
+        $("#fPrev").src = p.img;
+      }
+      function delP(id) {
+        if (!confirm("¿Eliminar este producto de la base de datos?")) return;
+        DB.products = DB.products.filter((p) => p.id !== id);
+        saveDB();
+        toast("🗑️ Producto eliminado y sincronizado");
+      }
+      function clearForm() {
+        state.editing = null;
+        $("#formTitle").textContent = "➕ Agregar / editar producto";
+        ["fName", "fPrice", "fOld", "fDesc", "fUrl"].forEach(
+          (i) => ($("#" + i).value = ""),
+        );
+        $("#fPrev").src = FALLBACK;
+        $("#fImg").value = "";
+      }
+      let tmpImg = "";
+      $("#fImg").onchange = (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        const r = new FileReader();
+        r.onload = () => {
+          tmpImg = r.result;
+          $("#fPrev").src = tmpImg;
+        };
+        r.readAsDataURL(f);
+      };
+      function saveProduct() {
+        const name = $("#fName").value.trim(),
+          price = parseFloat($("#fPrice").value);
+        if (!name || isNaN(price) || price < 0)
+          return toast("⚠️ Completa nombre y precio válido");
+        const img = tmpImg || $("#fUrl").value.trim() || FALLBACK;
+        const old = parseFloat($("#fOld").value) || null;
+        if (state.editing) {
+          const p = DB.products.find((x) => x.id === state.editing);
+          Object.assign(p, {
+            name,
+            cat: $("#fCat").value,
+            price,
+            old,
+            img,
+            desc: $("#fDesc").value,
+          });
+        } else
+          DB.products.push({
+            id: Date.now(),
+            name,
+            cat: $("#fCat").value,
+            price,
+            old,
+            img,
+            desc: $("#fDesc").value,
+          });
+        tmpImg = "";
+        saveDB();
+        clearForm();
+        toast("💾 Guardado y sincronizado con la tienda ✔");
+      }
+      $("#fQR").onchange = (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        const r = new FileReader();
+        r.onload = () => {
+          $("#qrPrev").src = r.result;
+          DB.config.yapeQR = r.result;
+          saveDB();
+          toast("📱 QR Yape actualizado y sincronizado");
+        };
+        r.readAsDataURL(f);
+      };
+      function saveConfig() {
+        DB.config.bank = $("#fBank").value;
+        const np = $("#fPass").value.trim();
+        if (np.length >= 4) {
+          DB.config.adminPass = np;
+          $("#fPass").value = "";
+          toast("🔑 Contraseña actualizada");
+        }
+        saveDB();
+        toast("💾 Configuración guardada");
+      }
+      function exportDB() {
+        const b = new Blob([JSON.stringify(DB, null, 2)], {
+          type: "application/json",
+        });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(b);
+        a.download = "esencia-dorada-db.json";
+        a.click();
+        toast("⬇️ Base de datos exportada");
+      }
+      $("#importDB").onchange = (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        const r = new FileReader();
+        r.onload = () => {
+          try {
+            DB = JSON.parse(r.result);
+            saveDB();
+            renderAdminList();
+            toast("⬆️ Base de datos importada y sincronizada");
+          } catch (err) {
+            toast("⚠️ Archivo inválido");
+          }
+        };
+        r.readAsText(f);
+      };
+      function resetDB() {
+        if (
+          !confirm("¿Restaurar el catálogo inicial? Se perderán los cambios.")
+        )
+          return;
+        DB.products = JSON.parse(JSON.stringify(SEED));
+        saveDB();
+        renderAdminList();
+        toast("♻️ Catálogo restaurado");
+      }
+
+      /* ---------- libro de reclamos ---------- */
+      function saveClaim() {
+        const n = $("#lbName").value.trim(),
+          m = $("#lbMail").value.trim(),
+          d = $("#lbDesc").value.trim(),
+          e = $("#lbErr");
+        if (!n || !/^\S+@\S+\.\S+$/.test(m) || !d) {
+          e.style.display = "block";
+          e.textContent = "⚠️ Completa nombres, correo válido y detalle.";
+          return;
+        }
+        e.style.display = "none";
+        DB.claims.push({
+          code: "LR-" + Date.now(),
+          type: $("#lbType").value,
+          name: n,
+          dni: $("#lbDni").value,
+          mail: m,
+          desc: d,
+          date: new Date().toISOString(),
+        });
+        saveDB();
+        closeModal("modalLibro");
+        toast("📕 Reclamo registrado. Código: " + DB.claims.at(-1).code);
+      }
+
+      /* ---------- info ---------- */
+      function openInfo(t) {
+        const b = $("#infoBody");
+        if (t === "mp")
+          b.innerHTML =
+            '<h3>💳 Cómo pagar con Mercado Pago / Tienda Online</h3><p style="font-size:14px;color:var(--dim);line-height:1.8">1️⃣ Agrega tus productos al carrito.<br>2️⃣ Elige <b>Transferencia</b> o <b>Yape</b>.<br>3️⃣ Completa los datos o escanea el QR.<br>4️⃣ Recibe tu confirmación <b>“Pago correctamente realizado”</b> al instante.<br><br>Todas las operaciones quedan registradas en tu pedido con código de seguimiento.</p>';
+        else
+          b.innerHTML =
+            '<h3>🛡️ Cómo te protegemos</h3><p style="font-size:14px;color:var(--dim);line-height:1.8">• Compra protegida de principio a fin.<br>• ¿No te gusta? ¡Devuélvelo! Tienes 7 días calendario para devoluciones.<br>• Tus datos de pago no se almacenan en nuestros servidores.<br>• Libro de Reclamaciones disponible según ley peruana.<br>• Atención por WhatsApp: +51 943 012 639.</p>';
+        openModal("modalInfo");
+      }
+
+      /* ---------- init ---------- */
+      renderGrid();
+      renderCart();
+      renderUser();
+      renderUbic();
+      stamp();
+      loadUbigeo();
+    </script>
+  </body>
+</html>
